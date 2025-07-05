@@ -1,5 +1,11 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+// import { useRef, useState, useEffect } from 'react';
+import Link from 'next/link';
+import { FiArrowRight, FiCheck, FiZap, FiUsers, FiMessageSquare, FiLayers } from 'react-icons/fi';
+import { FaDiscord, FaTwitter, FaGithub } from 'react-icons/fa';
+import Navbar from "./components/navbar/page";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -19,10 +25,138 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
+      
+
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      
+      className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <Navbar/>
+        
+
         {children}
+        <footer className="bg-gray-900 border-t border-gray-800">
+      <div className="container mx-auto px-6 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
+          <div>
+            <Link href="/" className="flex items-center mb-6">
+              <div className="w-10 h-10 rounded-full bg-gradient-to-r from-purple-500 to-indigo-600 flex items-center justify-center text-white font-bold mr-3">
+                CS
+              </div>
+              <span className="text-xl font-bold bg-gradient-to-r from-purple-400 to-indigo-300 bg-clip-text text-transparent">
+                CollabSpace
+              </span>
+            </Link>
+            <p className="text-gray-400 mb-6">
+              The all-in-one collaboration platform for modern teams.
+            </p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaTwitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaDiscord className="w-5 h-5" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors">
+                <FaGithub className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Product</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/features" className="text-gray-400 hover:text-white transition-colors">
+                  Features
+                </Link>
+              </li>
+              <li>
+                <Link href="/pricing" className="text-gray-400 hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/integrations" className="text-gray-400 hover:text-white transition-colors">
+                  Integrations
+                </Link>
+              </li>
+              <li>
+                <Link href="/changelog" className="text-gray-400 hover:text-white transition-colors">
+                  Changelog
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Resources</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
+                  Blog
+                </Link>
+              </li>
+              <li>
+                <Link href="/docs" className="text-gray-400 hover:text-white transition-colors">
+                  Documentation
+                </Link>
+              </li>
+              <li>
+                <Link href="/guides" className="text-gray-400 hover:text-white transition-colors">
+                  Guides
+                </Link>
+              </li>
+              <li>
+                <Link href="/webinars" className="text-gray-400 hover:text-white transition-colors">
+                  Webinars
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Company</h3>
+            <ul className="space-y-3">
+              <li>
+                <Link href="/about" className="text-gray-400 hover:text-white transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/careers" className="text-gray-400 hover:text-white transition-colors">
+                  Careers
+                </Link>
+              </li>
+              <li>
+                <Link href="/contact" className="text-gray-400 hover:text-white transition-colors">
+                  Contact
+                </Link>
+              </li>
+              <li>
+                <Link href="/legal" className="text-gray-400 hover:text-white transition-colors">
+                  Legal
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div className="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 mb-4 md:mb-0">
+            © {new Date().getFullYear()} CollabSpace. All rights reserved.
+          </p>
+          <div className="flex space-x-6">
+            <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+              Privacy Policy
+            </Link>
+            <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+              Terms of Service
+            </Link>
+            <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors">
+              Cookies
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
       </body>
     </html>
   );
