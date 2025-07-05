@@ -7,7 +7,7 @@ export default function NotFound() {
         🚧 Page Under Maintenance
       </h1>
       <p className="text-lg text-gray-400">
-        We're working on this page. Please check back later.
+        We're working on this page. Please check back later
       </p>
     </div>
   );
