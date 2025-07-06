@@ -1,9 +1,10 @@
 import User from "@/app/models/User";
 import { NextResponse } from "next/server";
 import { ConnectDB } from "@/app/lib/mongodb";
-
 export async function GET(req,{params}) {
     await ConnectDB();
+
+
 
     // const {userId} = await params;
     
@@ -12,8 +13,8 @@ export async function GET(req,{params}) {
     const userDetails = {
         username : user.username,
         email : user.email,
-        
-
+        profilepic : user.profilepic,
+        id : user._id
     }
 
     return NextResponse.json({success : true , userDetails}  );

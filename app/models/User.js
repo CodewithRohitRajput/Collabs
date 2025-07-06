@@ -4,10 +4,13 @@ const UserSchema = new mongoose.Schema({
     username : String,
     email : String,
     password : String,
+
     // role : {type: String , enum : ["admin" , "member"] , default : "member" },
     workspaces : [{
         type : mongoose.Schema.Types.ObjectId , ref : "Workspace"
-}]
+}] ,
+
+profilepic : String,
 
 })
 

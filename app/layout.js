@@ -1,11 +1,13 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 // import { useRef, useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FiArrowRight, FiCheck, FiZap, FiUsers, FiMessageSquare, FiLayers } from 'react-icons/fi';
 import { FaDiscord, FaTwitter, FaGithub } from 'react-icons/fa';
 import Navbar from "./components/navbar/page";
+// import { usePathname } from "next/navigation";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,6 +25,8 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // const pathname = usePathname();
+  // const isHome = pathname === '/'
   return (
     <html lang="en">
 
@@ -32,7 +36,8 @@ export default function RootLayout({ children }) {
       
       className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <Navbar/>
+       {/* {!isHome &&  }  */}
+       <Navbar/>
         
 
         {children}
